@@ -1,0 +1,32 @@
+{
+  "name": "otelize-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP server that guides teams through instrumenting applications with OpenTelemetry and streaming data to Edge Delta",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "tsx lib/test.ts"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "mcp-handler": "^1.0.2",
+    "next": "15.5.4",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.4",
+    "tsx": "^4.20.6",
+    "typescript": "^5"
+  },
+  "packageManager": "bun@1.2.21"
+}
