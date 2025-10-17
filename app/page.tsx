@@ -6,9 +6,10 @@ export default function Page() {
   const [copiedConfig, setCopiedConfig] = useState(false);
   const [copiedPrompt, setCopiedPrompt] = useState(false);
 
-  const mcpConfig = `"mcpServers": {
-  "otelize-your-apps": {
-    "url": "https://otelize.mcp.edgedelta.com/api/mcp"
+  const mcpConfig = `{
+  "mcpServers": {
+    "otelize-your-apps": {
+      "url": "https://otelize.mcp.edgedelta.com/api/mcp"
   }
 }`;
 
