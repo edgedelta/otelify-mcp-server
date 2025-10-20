@@ -1,6 +1,6 @@
-# Otelize MCP Server
+# Otelify MCP Server
 
-An MCP server that guides you through instrumenting an application with OpenTelemetry ("Otelize your apps") and streaming logs, metrics, and traces to Edge Delta.
+An MCP server that guides you through instrumenting an application with OpenTelemetry ("Otelify your apps") and streaming logs, metrics, and traces to Edge Delta.
 
 ## Quick Start
 
@@ -11,7 +11,7 @@ An MCP server that guides you through instrumenting an application with OpenTele
    ```json
    {
      "mcpServers": {
-       "otelize-your-apps": {
+       "otelify-your-apps": {
          "url": "https://<your-deployment>/api/mcp"
        }
      }
@@ -23,12 +23,12 @@ An MCP server that guides you through instrumenting an application with OpenTele
    Open your editor's MCP command palette and run a prompt like:
 
    ```
-   Otelize this service using the otelize-your-apps MCP server. Start by creating the checklist.
+   Otelify this service using the otelify-your-apps MCP server. Start by creating the checklist.
    ```
 
    The default workflow:
 
-   - Downloads `OTELIZE_CHECKLIST.md`
+   - Downloads `OTELIFY_CHECKLIST.md`
    - Generates a first-step instrumentation plan tailored to your stack
    - Provides the final Edge Delta endpoint configuration
 
@@ -36,7 +36,7 @@ An MCP server that guides you through instrumenting an application with OpenTele
 
 | Tool | Purpose |
 | --- | --- |
-| `create-checklist` | Downloads `OTELIZE_CHECKLIST.md`, the canonical step-by-step guide. |
+| `create-checklist` | Downloads `OTELIFY_CHECKLIST.md`, the canonical step-by-step guide. |
 | `generate-first-step-plan` | Produces a targeted plan for the first phase of instrumentation (Phase 2). Accepts optional metadata like service name, language, framework, and data stores. |
 | `point-to-edge-delta` | Returns the instructions required to stream OTLP data to Edge Delta (endpoints, env vars, validation). |
 

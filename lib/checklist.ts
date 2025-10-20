@@ -1,5 +1,5 @@
 /**
- * Otelize checklist generator.
+ * Otelify checklist generator.
  * Produces the canonical Markdown file agents download before starting work.
  */
 
@@ -10,7 +10,7 @@ export function generateChecklist(): string {
   const firstStepPlanUrl = `${baseUrl}/api/plan`;
   const edgeDeltaGuideUrl = `${baseUrl}/api/edge-delta`;
 
-  return `# Otelize Your Apps Checklist
+  return `# Otelify Your Apps Checklist
 
 Use this checklist to instrument your application with OpenTelemetry across logs, metrics, and traces, then stream data to Edge Delta.
 
@@ -78,5 +78,5 @@ Use this checklist to instrument your application with OpenTelemetry across logs
 - [ ] Hand off ongoing operations guidance to the owning team (alerting thresholds, dashboards, runbooks).
 - [ ] Create a follow-up backlog of advanced instrumentation (profiling, span links, exemplars) if needed.
 
-Once all boxes are checked, your service is fully otelized and streaming telemetry to Edge Delta.`;
+Once all boxes are checked, your service is fully otelified and streaming telemetry to Edge Delta.`;
 }

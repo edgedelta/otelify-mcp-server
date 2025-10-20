@@ -1,5 +1,5 @@
 /**
- * API endpoint to generate the Otelize checklist.
+ * API endpoint to generate the Otelify checklist.
  */
 
 import { generateChecklist } from "@/lib/checklist";

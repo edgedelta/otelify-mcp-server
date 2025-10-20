@@ -1,8 +1,8 @@
 /**
- * Otelize MCP server.
+ * Otelify MCP server.
  *
  * Tools:
- * 1. create-checklist - Provides instructions to download the Otelize checklist.
+ * 1. create-checklist - Provides instructions to download the Otelify checklist.
  * 2. generate-first-step-plan - Returns a plan tailored to the service's first instrumentation step.
  * 3. point-to-edge-delta - Guides the user to stream telemetry to Edge Delta.
  */
@@ -16,10 +16,10 @@ const handler = createMcpHandler(
   (server) => {
     server.tool(
       "create-checklist",
-      "Creates an Otelize checklist in the repository by downloading the canonical markdown file. Check if OTELIZE_CHECKLIST.md exists first.",
+      "Creates an Otelify checklist in the repository by downloading the canonical markdown file. Check if OTELIFY_CHECKLIST.md exists first.",
       {},
       async () => {
-        const checklistPath = "OTELIZE_CHECKLIST.md";
+        const checklistPath = "OTELIFY_CHECKLIST.md";
         const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
           ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
           : "http://localhost:3000";
@@ -29,7 +29,7 @@ const handler = createMcpHandler(
           content: [
             {
               type: "text" as const,
-              text: `📋 Otelize Checklist Instructions
+              text: `📋 Otelify Checklist Instructions
 
 TARGET FILE: ${checklistPath}
 
@@ -43,7 +43,7 @@ Run:
 curl -s "${apiUrl}" -o "${checklistPath}"
 \`\`\`
 
-This fetches the canonical Otelize checklist covering logs, metrics, traces, and the Edge Delta rollout.
+This fetches the canonical Otelify checklist covering logs, metrics, traces, and the Edge Delta rollout.
 
 STEP 3 — VERIFY
 Immediately read ${checklistPath} to confirm it was saved. Summarize the next actions for the user.
@@ -54,7 +54,7 @@ WORKING AGREEMENTS
 - Use the \`generate-first-step-plan\` tool before starting Phase 2.
 - When ready for Edge Delta integration, call \`point-to-edge-delta\` for the latest endpoint guidance.
 
-Ready to Otelize!`,
+Ready to Otelify!`,
             },
           ],
         };
@@ -149,7 +149,7 @@ Ready to Otelize!`,
   },
   {
     serverInfo: {
-      name: "otelize-your-apps",
+      name: "otelify-your-apps",
       version: "1.0.0",
     },
     capabilities: {

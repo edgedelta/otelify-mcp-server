@@ -8,12 +8,12 @@ export default function Page() {
 
   const mcpConfig = `{
   "mcpServers": {
-    "otelize-your-apps": {
-      "url": "https://otelize.mcp.edgedelta.com/api/mcp"
+    "otelify-your-apps": {
+      "url": "https://otelify.mcp.edgedelta.com/api/mcp"
   }
 }`;
 
-  const promptText = "Instrument open telemetry for this service using the otelize MCP server.";
+  const promptText = "Instrument open telemetry for this service using the otelify MCP server.";
 
   const handleCopyConfig = async () => {
     await navigator.clipboard.writeText(mcpConfig);
@@ -42,7 +42,7 @@ export default function Page() {
         marginBottom: "1rem",
         color: "#000"
       }}>
-        Otelize MCP Server
+        Otelify MCP Server
       </h1>
       <p style={{
         fontSize: "1.125rem",
