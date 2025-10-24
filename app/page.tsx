@@ -3,22 +3,39 @@
 import { useState } from "react";
 
 export default function Page() {
-  const [copiedConfig, setCopiedConfig] = useState(false);
+  const [copiedConfig1, setCopiedConfig1] = useState(false);
+  const [copiedConfig2, setCopiedConfig2] = useState(false);
   const [copiedPrompt, setCopiedPrompt] = useState(false);
 
-  const mcpConfig = `{
+  const mcpConfigDirect = `{
   "mcpServers": {
     "otelify-your-apps": {
       "url": "https://otelify.mcp.edgedelta.com/api/mcp"
+    }
+  }
+}`;
+
+  const mcpConfigRemote = `{
+  "mcpServers": {
+    "otelify-your-apps": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://otelify.mcp.edgedelta.com/api/mcp"]
+    }
   }
 }`;
 
   const promptText = "Instrument open telemetry for this service using the otelify MCP server.";
 
-  const handleCopyConfig = async () => {
-    await navigator.clipboard.writeText(mcpConfig);
-    setCopiedConfig(true);
-    setTimeout(() => setCopiedConfig(false), 2000);
+  const handleCopyConfig1 = async () => {
+    await navigator.clipboard.writeText(mcpConfigDirect);
+    setCopiedConfig1(true);
+    setTimeout(() => setCopiedConfig1(false), 2000);
+  };
+
+  const handleCopyConfig2 = async () => {
+    await navigator.clipboard.writeText(mcpConfigRemote);
+    setCopiedConfig2(true);
+    setTimeout(() => setCopiedConfig2(false), 2000);
   };
 
   const handleCopyPrompt = async () => {
@@ -69,9 +86,18 @@ export default function Page() {
         marginBottom: "1.5rem",
         color: "#000"
       }}>
-        Add the following configuration to your MCP client settings (e.g., Claude Desktop config):
+        Add one of the following configurations to your MCP client settings (e.g., Claude Desktop config):
       </p>
 
+      <h3 style={{
+        fontSize: "1.5rem",
+        fontWeight: "600",
+        marginBottom: "0.75rem",
+        marginTop: "1.5rem",
+        color: "#000"
+      }}>
+        Option 1: Direct URL (Recommended)
+      </h3>
       <div style={{ position: "relative", marginBottom: "2.5rem" }}>
         <pre
           style={{
@@ -85,16 +111,16 @@ export default function Page() {
             fontFamily: "'Monaco', 'Menlo', 'Ubuntu Mono', monospace"
           }}
         >
-          <code>{mcpConfig}</code>
+          <code>{mcpConfigDirect}</code>
         </pre>
         <button
-          onClick={handleCopyConfig}
+          onClick={handleCopyConfig1}
           style={{
             position: "absolute",
             top: "1rem",
             right: "1rem",
             padding: "0.5rem 1.25rem",
-            background: copiedConfig ? "#4caf50" : "#2196F3",
+            background: copiedConfig1 ? "#4caf50" : "#2196F3",
             color: "white",
             border: "none",
             borderRadius: "6px",
@@ -104,7 +130,52 @@ export default function Page() {
             transition: "all 0.2s"
           }}
         >
-          {copiedConfig ? "Copied!" : "Copy"}
+          {copiedConfig1 ? "Copied!" : "Copy"}
+        </button>
+      </div>
+
+      <h3 style={{
+        fontSize: "1.5rem",
+        fontWeight: "600",
+        marginBottom: "0.75rem",
+        marginTop: "1.5rem",
+        color: "#000"
+      }}>
+        Option 2: Using mcp-remote
+      </h3>
+      <div style={{ position: "relative", marginBottom: "2.5rem" }}>
+        <pre
+          style={{
+            background: "#f5f5f5",
+            padding: "1.5rem",
+            borderRadius: "8px",
+            overflow: "auto",
+            border: "1px solid #e0e0e0",
+            fontSize: "0.95rem",
+            lineHeight: "1.6",
+            fontFamily: "'Monaco', 'Menlo', 'Ubuntu Mono', monospace"
+          }}
+        >
+          <code>{mcpConfigRemote}</code>
+        </pre>
+        <button
+          onClick={handleCopyConfig2}
+          style={{
+            position: "absolute",
+            top: "1rem",
+            right: "1rem",
+            padding: "0.5rem 1.25rem",
+            background: copiedConfig2 ? "#4caf50" : "#2196F3",
+            color: "white",
+            border: "none",
+            borderRadius: "6px",
+            cursor: "pointer",
+            fontSize: "0.9rem",
+            fontWeight: "500",
+            transition: "all 0.2s"
+          }}
+        >
+          {copiedConfig2 ? "Copied!" : "Copy"}
         </button>
       </div>
 
