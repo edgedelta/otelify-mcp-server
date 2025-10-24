@@ -18,7 +18,20 @@ An MCP server that guides you through instrumenting an application with OpenTele
    }
    ```
 
-2. **Kick off the workflow**
+   or
+
+   ```json
+   {
+     "mcpServers": {
+       "otelify-your-apps": {
+          "command": "npx",
+          "args": ["mcp-remote", "https://<your-deployment>/api/mcp"]
+       }
+     }
+   }
+   ```
+
+3. **Kick off the workflow**
 
    Open your editor's MCP command palette and run a prompt like:
 
